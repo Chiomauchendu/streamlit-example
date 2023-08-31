@@ -642,103 +642,103 @@ print("Columns in X_test:", X_test.columns.tolist())
 # # In[52]:
 
 
-# # Assuming you have imported the necessary libraries and trained your model
+# # # Assuming you have imported the necessary libraries and trained your model
 
-# # Get the weights of the first layer (assuming it's a dense layer)
-# first_layer_weights = model.layers[0].get_weights()[0]
+# # # Get the weights of the first layer (assuming it's a dense layer)
+# # first_layer_weights = model.layers[0].get_weights()[0]
 
-# # Calculate the absolute sum of weights for each input feature
-# feature_importance = np.sum(np.abs(first_layer_weights), axis=1)
+# # # Calculate the absolute sum of weights for each input feature
+# # feature_importance = np.sum(np.abs(first_layer_weights), axis=1)
 
-# # Create a DataFrame to associate feature names with their importance
-# importance_df = pd.DataFrame({'Feature': X.columns, 'Importance': feature_importance})
+# # # Create a DataFrame to associate feature names with their importance
+# # importance_df = pd.DataFrame({'Feature': X.columns, 'Importance': feature_importance})
 
-# # Sort the DataFrame by importance in descending order
-# importance_df = importance_df.sort_values(by='Importance', ascending=False)
+# # # Sort the DataFrame by importance in descending order
+# # importance_df = importance_df.sort_values(by='Importance', ascending=False)
 
-# # Print the feature importance
-# print(importance_df)
-
-
-# """**SCENERIO AND EXPERIMENTATIONS**"""
-
-# In[53]:
+# # # Print the feature importance
+# # print(importance_df)
 
 
-y_pred_ann
+# # """**SCENERIO AND EXPERIMENTATIONS**"""
 
-# Original input data for comparison
-original_input = X_train
-
-# Predict heating cost for the original input
-original_predicted_cost = model.predict([original_input])
-
-print("Baseline: Original Values")
-print(f"Baseline Predicted increase or decrease in Heating Cost: {original_predicted_cost[0][0]}\n")
+# # In[53]:
 
 
-# In[54]:
+# y_pred_ann
+
+# # Original input data for comparison
+# original_input = X_train
+
+# # Predict heating cost for the original input
+# original_predicted_cost = model.predict([original_input])
+
+# print("Baseline: Original Values")
+# print(f"Baseline Predicted increase or decrease in Heating Cost: {original_predicted_cost[0][0]}\n")
 
 
-# Scenario 2: Change 'PROPERTY_TYPE_Flat' to 1, set related columns to 0
-#we used flat because from the rating, flat was the only property type among the top important variables
-scenario_2_input = original_input.copy()
-scenario_2_input['PROPERTY_TYPE_Flat'] = 1
-scenario_2_input.loc[:, scenario_2_input.columns.str.startswith('PROPERTY_TYPE')] = 0
+# # In[54]:
 
 
-# Predict heating cost for scenario 2 input
-scenario_2_predicted_cost = model.predict([scenario_2_input])
-
-print("Scenario 2: PROPERTY_TYPE_Flat Set to 1")
-print(f"Scenario 2 Predicted increase or decrease to Heating Cost: {scenario_2_predicted_cost[0][0]}\n")
-
-
-# In[55]:
+# # Scenario 2: Change 'PROPERTY_TYPE_Flat' to 1, set related columns to 0
+# #we used flat because from the rating, flat was the only property type among the top important variables
+# scenario_2_input = original_input.copy()
+# scenario_2_input['PROPERTY_TYPE_Flat'] = 1
+# scenario_2_input.loc[:, scenario_2_input.columns.str.startswith('PROPERTY_TYPE')] = 0
 
 
-#A flat using Electric storage heaters
+# # Predict heating cost for scenario 2 input
+# scenario_2_predicted_cost = model.predict([scenario_2_input])
 
-scenario_5_input = scenario_2_input.copy()
-scenario_5_input['MAINHEAT_DESCRIPTION_Electric storage heaters'] = 1
-scenario_5_input.loc[:, scenario_5_input.columns.str.startswith('MAINHEAT_DESCRIPTION')] = 0
-
-# Predict heating cost for scenario 5 input
-scenario_5_predicted_cost = model.predict([scenario_5_input])
-
-print("Scenario 5: A FLAT USING Electric storage heaters")
-print(f"Scenario 5 Predicted increase or decrease to Heating Cost: {scenario_5_predicted_cost[0][0]}\n")
+# print("Scenario 2: PROPERTY_TYPE_Flat Set to 1")
+# print(f"Scenario 2 Predicted increase or decrease to Heating Cost: {scenario_2_predicted_cost[0][0]}\n")
 
 
-# In[56]:
+# # In[55]:
 
 
-scenario_3_input = original_input.copy()
-scenario_3_input['MAINHEAT_DESCRIPTION_Air source heat pump, Underfloor heating, pipes in screed above insulation, electric'] = 1
-scenario_3_input.loc[:, scenario_3_input.columns.str.startswith('MAINHEAT_DESCRIPTION')] = 0
+# #A flat using Electric storage heaters
 
-# Predict heating cost for scenario 3 input
-scenario_3_predicted_cost = model.predict([scenario_3_input])
+# scenario_5_input = scenario_2_input.copy()
+# scenario_5_input['MAINHEAT_DESCRIPTION_Electric storage heaters'] = 1
+# scenario_5_input.loc[:, scenario_5_input.columns.str.startswith('MAINHEAT_DESCRIPTION')] = 0
 
-print("Scenario 3: MAINHEAT_DESCRIPTION Set to Heat Pump")
-print(f"Scenario 3 Predicted increase or decrease to Heating Cost: {scenario_3_predicted_cost[0][0]}\n")
+# # Predict heating cost for scenario 5 input
+# scenario_5_predicted_cost = model.predict([scenario_5_input])
 
-
-# In[57]:
-
-
-scenario_4_input = scenario_3_input.copy()
-scenario_4_input['PROPERTY_TYPE_House'] = 1
-scenario_4_input.loc[:, scenario_4_input.columns.str.startswith('PROPERTY_TYPE')] = 0
-
-# Predict heating cost for scenario 2 input
-scenario_4_predicted_cost = model.predict([scenario_4_input])
-
-print("Scenario 4: PROPERTY_TYPE_House Set to Heat Pump")
-print(f"Scenario 4 Predicted increase or decrease to Heating Cost: {scenario_4_predicted_cost[0][0]}\n")
+# print("Scenario 5: A FLAT USING Electric storage heaters")
+# print(f"Scenario 5 Predicted increase or decrease to Heating Cost: {scenario_5_predicted_cost[0][0]}\n")
 
 
-# # In[58]:
+# # In[56]:
+
+
+# scenario_3_input = original_input.copy()
+# scenario_3_input['MAINHEAT_DESCRIPTION_Air source heat pump, Underfloor heating, pipes in screed above insulation, electric'] = 1
+# scenario_3_input.loc[:, scenario_3_input.columns.str.startswith('MAINHEAT_DESCRIPTION')] = 0
+
+# # Predict heating cost for scenario 3 input
+# scenario_3_predicted_cost = model.predict([scenario_3_input])
+
+# print("Scenario 3: MAINHEAT_DESCRIPTION Set to Heat Pump")
+# print(f"Scenario 3 Predicted increase or decrease to Heating Cost: {scenario_3_predicted_cost[0][0]}\n")
+
+
+# # In[57]:
+
+
+# scenario_4_input = scenario_3_input.copy()
+# scenario_4_input['PROPERTY_TYPE_House'] = 1
+# scenario_4_input.loc[:, scenario_4_input.columns.str.startswith('PROPERTY_TYPE')] = 0
+
+# # Predict heating cost for scenario 2 input
+# scenario_4_predicted_cost = model.predict([scenario_4_input])
+
+# print("Scenario 4: PROPERTY_TYPE_House Set to Heat Pump")
+# print(f"Scenario 4 Predicted increase or decrease to Heating Cost: {scenario_4_predicted_cost[0][0]}\n")
+
+
+# # # In[58]:
 
 
 # pip install scikit-learn-contrib
