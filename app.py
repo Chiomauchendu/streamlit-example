@@ -6,9 +6,9 @@
 
 import pandas as pd
 import numpy as np
-from sklearn import linear_model
+# from sklearn import linear_model
 import matplotlib.pyplot as plt
-import streamlit as st
+# import streamlit as st
 
 
 # In[2]:
@@ -437,227 +437,227 @@ X.info()
 print("Columns in X_test:", X_test.columns.tolist())
 
 
-# **MACHINE LEARNING MODELS**
+# # **MACHINE LEARNING MODELS**
 
-# In[39]:
+# # In[39]:
 
 
-# Create a linear regression model
-from sklearn.linear_model import LinearRegression
-regression_model = LinearRegression()
+# # Create a linear regression model
+# from sklearn.linear_model import LinearRegression
+# regression_model = LinearRegression()
 
-# Train the model on the training data
-regression_model.fit(X_train, y_train)
+# # Train the model on the training data
+# regression_model.fit(X_train, y_train)
 
-# Make predictions on the test data
-y_pred = regression_model.predict(X_test)
-from sklearn.metrics import mean_squared_error, r2_score
+# # Make predictions on the test data
+# y_pred = regression_model.predict(X_test)
+# from sklearn.metrics import mean_squared_error, r2_score
 
 
-# Calculate the mean squared error (MSE)
-mse = mean_squared_error(y_test, y_pred)
+# # Calculate the mean squared error (MSE)
+# mse = mean_squared_error(y_test, y_pred)
 
-# Calculate the R-squared (coefficient of determination) score
-r2 = r2_score(y_test, y_pred)
-print("Mean Squared Error:", mse)
-print("R-squared:", r2)
+# # Calculate the R-squared (coefficient of determination) score
+# r2 = r2_score(y_test, y_pred)
+# print("Mean Squared Error:", mse)
+# print("R-squared:", r2)
 
 
-# In[40]:
+# # In[40]:
 
 
-from sklearn.ensemble import GradientBoostingRegressor
-from sklearn.metrics import mean_squared_error,mean_absolute_error, r2_score
-# Create a Gradient Boosting Regressor model
-gradient_boosting_model = GradientBoostingRegressor()
+# from sklearn.ensemble import GradientBoostingRegressor
+# from sklearn.metrics import mean_squared_error,mean_absolute_error, r2_score
+# # Create a Gradient Boosting Regressor model
+# gradient_boosting_model = GradientBoostingRegressor()
 
-# Train the model on the training data
-gradient_boosting_model.fit(X_train, y_train)
+# # Train the model on the training data
+# gradient_boosting_model.fit(X_train, y_train)
 
-# Make predictions on the test data
-y_pred = gradient_boosting_model.predict(X_test)
+# # Make predictions on the test data
+# y_pred = gradient_boosting_model.predict(X_test)
 
 
-# Calculate the mean squared error (MSE)
-mse = mean_squared_error(y_test, y_pred)
+# # Calculate the mean squared error (MSE)
+# mse = mean_squared_error(y_test, y_pred)
 
-# Calculate the R-squared (coefficient of determination) score
-r2 = r2_score(y_test, y_pred)
+# # Calculate the R-squared (coefficient of determination) score
+# r2 = r2_score(y_test, y_pred)
 
-print("Gradient Boosting Model - Mean Squared Error:", mse)
-print("Gradient Boosting Model - R-squared:", r2)
+# print("Gradient Boosting Model - Mean Squared Error:", mse)
+# print("Gradient Boosting Model - R-squared:", r2)
 
 
-# In[41]:
+# # In[41]:
 
 
-#Calculate the mean absolute error (MAE)
-mae_gradient_boosting = mean_absolute_error(y_test, y_pred)
+# #Calculate the mean absolute error (MAE)
+# mae_gradient_boosting = mean_absolute_error(y_test, y_pred)
 
-print("Mean Absolute Error (Gradient Boosting):", mae_gradient_boosting)
+# print("Mean Absolute Error (Gradient Boosting):", mae_gradient_boosting)
 
 
-# In[42]:
+# # In[42]:
 
 
-from sklearn.ensemble import RandomForestRegressor
-# Create a Random Forest Regressor model
-random_forest_model = RandomForestRegressor(n_estimators=100, random_state=42)
-# Train the model on the training data
-random_forest_model.fit(X_train, y_train)
-# Make predictions on the test data
-y_pred = random_forest_model.predict(X_test)
+# from sklearn.ensemble import RandomForestRegressor
+# # Create a Random Forest Regressor model
+# random_forest_model = RandomForestRegressor(n_estimators=100, random_state=42)
+# # Train the model on the training data
+# random_forest_model.fit(X_train, y_train)
+# # Make predictions on the test data
+# y_pred = random_forest_model.predict(X_test)
 
-# Calculate the mean squared error (MSE) on the test data
-mse = mean_squared_error(y_test, y_pred)
+# # Calculate the mean squared error (MSE) on the test data
+# mse = mean_squared_error(y_test, y_pred)
 
-# Calculate the R-squared (coefficient of determination) score on the test data
-r2 = r2_score(y_test, y_pred)
+# # Calculate the R-squared (coefficient of determination) score on the test data
+# r2 = r2_score(y_test, y_pred)
 
-print("Random Forest Model - Mean Squared Error:", mse)
-print("Random Forest Model - R-squared:", r2)
+# print("Random Forest Model - Mean Squared Error:", mse)
+# print("Random Forest Model - R-squared:", r2)
 
 
-# In[43]:
+# # In[43]:
 
 
-#Calculate the mean absolute error (MAE)
-mae_random_forest = mean_absolute_error(y_test, y_pred)
+# #Calculate the mean absolute error (MAE)
+# mae_random_forest = mean_absolute_error(y_test, y_pred)
 
-print("Mean Absolute Error (Random Forest):", mae_random_forest)
+# print("Mean Absolute Error (Random Forest):", mae_random_forest)
 
 
-# In[44]:
+# # In[44]:
 
 
-"""**Decision Tree Regressor**"""
+# """**Decision Tree Regressor**"""
 
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.metrics import mean_absolute_error
+# from sklearn.tree import DecisionTreeRegressor
+# from sklearn.metrics import mean_absolute_error
 
-# Create a Decision Tree Regressor model
-Decision_Tree_model = DecisionTreeRegressor()
+# # Create a Decision Tree Regressor model
+# Decision_Tree_model = DecisionTreeRegressor()
 
-# Train the model on the training data
-Decision_Tree_model.fit(X_train, y_train)
+# # Train the model on the training data
+# Decision_Tree_model.fit(X_train, y_train)
 
-# Make predictions on the test data
-y_pred = Decision_Tree_model.predict(X_test)
+# # Make predictions on the test data
+# y_pred = Decision_Tree_model.predict(X_test)
 
-# Calculate the mean squared error (MSE)
-mse = mean_squared_error(y_test, y_pred)
+# # Calculate the mean squared error (MSE)
+# mse = mean_squared_error(y_test, y_pred)
 
-# Calculate the R-squared (coefficient of determination) score
-r2 = r2_score(y_test, y_pred)
+# # Calculate the R-squared (coefficient of determination) score
+# r2 = r2_score(y_test, y_pred)
 
-print("Decision Tree Model - Mean Squared Error:", mse)
-print("Decision Tree Model - R-squared:", r2)
+# print("Decision Tree Model - Mean Squared Error:", mse)
+# print("Decision Tree Model - R-squared:", r2)
 
 
-# In[45]:
+# # In[45]:
 
 
-#Calculate the mean absolute error (MAE)
-mae_decision_Tree = mean_absolute_error(y_test, y_pred)
+# #Calculate the mean absolute error (MAE)
+# mae_decision_Tree = mean_absolute_error(y_test, y_pred)
 
-print("Mean Absolute Error (Decision Tree):", mae_decision_Tree)
+# print("Mean Absolute Error (Decision Tree):", mae_decision_Tree)
 
 
-# In[46]:
+# # In[46]:
 
 
-pip install tensorflow
+# pip install tensorflow
 
 
-# In[47]:
+# # In[47]:
 
 
-pip install --upgrade tensorflow h5py numpy
+# pip install --upgrade tensorflow h5py numpy
 
 
-# In[48]:
+# # In[48]:
 
 
-"""**ANN**"""
-import tensorflow as tf
-from tensorflow import keras
-from tensorflow.keras import layers
+# """**ANN**"""
+# import tensorflow as tf
+# from tensorflow import keras
+# from tensorflow.keras import layers
 
 
-# In[49]:
+# # In[49]:
 
 
-X_train = X_train.astype(np.float32)
-y_train = y_train.astype(np.float32)
+# X_train = X_train.astype(np.float32)
+# y_train = y_train.astype(np.float32)
 
-X_test = X_test.astype(np.float32)
-y_test = y_test.astype(np.float32)
+# X_test = X_test.astype(np.float32)
+# y_test = y_test.astype(np.float32)
 
 
-# In[50]:
+# # In[50]:
 
 
-model = keras.Sequential([
-    layers.Input(shape=(X_train.shape[1],)),  # Input layer
-    layers.Dense(64, activation='relu'),      # Hidden layer 1
-    layers.Dense(32, activation='relu'),      # Hidden layer 2
-    layers.Dense(1)                           # Output layer
-])
+# model = keras.Sequential([
+#     layers.Input(shape=(X_train.shape[1],)),  # Input layer
+#     layers.Dense(64, activation='relu'),      # Hidden layer 1
+#     layers.Dense(32, activation='relu'),      # Hidden layer 2
+#     layers.Dense(1)                           # Output layer
+# ])
 
-# Compile the model
-model.compile(optimizer='adam', loss='mean_squared_error')
+# # Compile the model
+# model.compile(optimizer='adam', loss='mean_squared_error')
 
-# Train the model on the training data
-history = model.fit(X_train, y_train, epochs=50, batch_size=32, validation_split=0.2, verbose=1)
+# # Train the model on the training data
+# history = model.fit(X_train, y_train, epochs=50, batch_size=32, validation_split=0.2, verbose=1)
 
-# Evaluate the model on the test data
-loss = model.evaluate(X_test, y_test)
-print("Mean Squared Error on Test Data:", loss)
+# # Evaluate the model on the test data
+# loss = model.evaluate(X_test, y_test)
+# print("Mean Squared Error on Test Data:", loss)
 
-from sklearn.metrics import r2_score
+# from sklearn.metrics import r2_score
 
-# Predict the target variable using the trained ANN model
-y_pred_ann = model.predict(X_test)
+# # Predict the target variable using the trained ANN model
+# y_pred_ann = model.predict(X_test)
 
-# Calculate the R-squared value
-r2_ann = r2_score(y_test, y_pred_ann)
-print("R-squared for ANN Model:", r2_ann)
+# # Calculate the R-squared value
+# r2_ann = r2_score(y_test, y_pred_ann)
+# print("R-squared for ANN Model:", r2_ann)
 
 
-# In[51]:
+# # In[51]:
 
 
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
-# Plot the training and validation loss over epochs
-plt.plot(history.history['loss'], label='Training Loss')
-plt.plot(history.history['val_loss'], label='Validation Loss')
-plt.xlabel('Epoch')
-plt.ylabel('Loss')
-plt.title('Training and Validation Loss Over Epochs')
-plt.legend()
-plt.show()
+# # Plot the training and validation loss over epochs
+# plt.plot(history.history['loss'], label='Training Loss')
+# plt.plot(history.history['val_loss'], label='Validation Loss')
+# plt.xlabel('Epoch')
+# plt.ylabel('Loss')
+# plt.title('Training and Validation Loss Over Epochs')
+# plt.legend()
+# plt.show()
 
 
-# In[52]:
+# # In[52]:
 
 
-# Assuming you have imported the necessary libraries and trained your model
+# # Assuming you have imported the necessary libraries and trained your model
 
-# Get the weights of the first layer (assuming it's a dense layer)
-first_layer_weights = model.layers[0].get_weights()[0]
+# # Get the weights of the first layer (assuming it's a dense layer)
+# first_layer_weights = model.layers[0].get_weights()[0]
 
-# Calculate the absolute sum of weights for each input feature
-feature_importance = np.sum(np.abs(first_layer_weights), axis=1)
+# # Calculate the absolute sum of weights for each input feature
+# feature_importance = np.sum(np.abs(first_layer_weights), axis=1)
 
-# Create a DataFrame to associate feature names with their importance
-importance_df = pd.DataFrame({'Feature': X.columns, 'Importance': feature_importance})
+# # Create a DataFrame to associate feature names with their importance
+# importance_df = pd.DataFrame({'Feature': X.columns, 'Importance': feature_importance})
 
-# Sort the DataFrame by importance in descending order
-importance_df = importance_df.sort_values(by='Importance', ascending=False)
+# # Sort the DataFrame by importance in descending order
+# importance_df = importance_df.sort_values(by='Importance', ascending=False)
 
-# Print the feature importance
-print(importance_df)
+# # Print the feature importance
+# print(importance_df)
 
 
 # """**SCENERIO AND EXPERIMENTATIONS**"""
@@ -734,59 +734,59 @@ scenario_4_input.loc[:, scenario_4_input.columns.str.startswith('PROPERTY_TYPE')
 # Predict heating cost for scenario 2 input
 scenario_4_predicted_cost = model.predict([scenario_4_input])
 
-print("Scenario 3: MAINHEAT_DESCRIPTION Set to Heat Pump")
-print(f"Scenario 3 Predicted increase or decrease to Heating Cost: {scenario_4_predicted_cost[0][0]}\n")
+print("Scenario 4: PROPERTY_TYPE_House Set to Heat Pump")
+print(f"Scenario 4 Predicted increase or decrease to Heating Cost: {scenario_4_predicted_cost[0][0]}\n")
 
 
-# In[58]:
+# # In[58]:
 
 
-pip install scikit-learn-contrib
+# pip install scikit-learn-contrib
 
 
-# In[59]:
+# # In[59]:
 
 
-import numpy as np
-from sklearn.model_selection import GridSearchCV
-from tensorflow import keras
-from tensorflow.keras import layers
-from sklearn.metrics import make_scorer
-from sklearn.metrics import r2_score
+# import numpy as np
+# from sklearn.model_selection import GridSearchCV
+# from tensorflow import keras
+# from tensorflow.keras import layers
+# from sklearn.metrics import make_scorer
+# from sklearn.metrics import r2_score
 
-# Define the function to build the model
-def build_model(neurons_layer1=64, neurons_layer2=32):
-    model = keras.Sequential([
-        layers.Input(shape=(X_train.shape[1],)),
-        layers.Dense(neurons_layer1, activation='relu'),
-        layers.Dense(neurons_layer2, activation='relu'),
-        layers.Dense(1)
-    ])
+# # Define the function to build the model
+# def build_model(neurons_layer1=64, neurons_layer2=32):
+#     model = keras.Sequential([
+#         layers.Input(shape=(X_train.shape[1],)),
+#         layers.Dense(neurons_layer1, activation='relu'),
+#         layers.Dense(neurons_layer2, activation='relu'),
+#         layers.Dense(1)
+#     ])
     
-    model.compile(optimizer='adam', loss='mean_squared_error')
-    return model
+#     model.compile(optimizer='adam', loss='mean_squared_error')
+#     return model
 
-# Create a KerasRegressor using build_model function
-keras_regressor = keras.wrappers.scikit_learn.KerasRegressor(build_fn=build_model, verbose=0)
+# # Create a KerasRegressor using build_model function
+# keras_regressor = keras.wrappers.scikit_learn.KerasRegressor(build_fn=build_model, verbose=0)
 
-# Define hyperparameters and their values for grid search
-param_grid = {
-    'neurons_layer1': [32, 64, 128],
-    'neurons_layer2': [16, 32, 64],
-    'batch_size': [16, 32, 64],
-    'epochs': [50, 100, 200]
-}
+# # Define hyperparameters and their values for grid search
+# param_grid = {
+#     'neurons_layer1': [32, 64, 128],
+#     'neurons_layer2': [16, 32, 64],
+#     'batch_size': [16, 32, 64],
+#     'epochs': [50, 100, 200]
+# }
 
-# Perform grid search with cross-validation
-grid_search = GridSearchCV(estimator=keras_regressor, param_grid=param_grid, scoring=make_scorer(r2_score), cv=3)
-grid_result = grid_search.fit(X_train, y_train)
+# # Perform grid search with cross-validation
+# grid_search = GridSearchCV(estimator=keras_regressor, param_grid=param_grid, scoring=make_scorer(r2_score), cv=3)
+# grid_result = grid_search.fit(X_train, y_train)
 
-# Print best hyperparameters and corresponding R-squared score
-print("Best Hyperparameters: ", grid_result.best_params_)
-print("Best R-squared Score: ", grid_result.best_score_)
+# # Print best hyperparameters and corresponding R-squared score
+# print("Best Hyperparameters: ", grid_result.best_params_)
+# print("Best R-squared Score: ", grid_result.best_score_)
 
 
-# In[ ]:
+# # In[ ]:
 
 
 """END"""
